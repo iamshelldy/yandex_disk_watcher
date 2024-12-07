@@ -16,12 +16,12 @@
     </p>
     <p>{{ form.submit() }}</p>
     <p>New User? <a href="{{ url_for('auth.register') }}">Click to Register!</a></p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <span class="warning">[{{ message }}]</span>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
 </form>
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-{% for message in messages %}
-<span class="warning">[{{ message }}]</span>
-{% endfor %}
-{% endif %}
-{% endwith %}
 {% endblock %}

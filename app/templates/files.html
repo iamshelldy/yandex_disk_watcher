@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Found Files</h1>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Name</th>
+                <th>
+                    <div class="filter-dropdown">
+                        <span>Type &#x1F50D;</span>
+                        <div class="dropdown-content">
+                            {% for item in types %}
+                            <label>
+                                <input type="checkbox" value="{{ item }}" class="filter-type" checked>
+                                {{ item }}
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </th>
+                <th>Path</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in files %}
+            <tr>
+                <td>
+                    <input type="checkbox" class="file-checkbox" value="{{ item.url or "" }}">
+                </td>
+                <td>
+                    {{ item.name }}
+                </td>
+                <td class="type-{{ item.type }}">
+                    {% if item.type == 'folder' %}folder{% else %}{{ item.type }}{% endif %}
+                </td>
+                <td class="path-cell">
+                    {{ item.path }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<button class="download-button" id="downloadSelected" type="button">Download Selected</button>
+<h2>Watch another link? <a href="{{ url_for('core.index') }}">Click</a></h2>
+<script src="{{ url_for('static', filename='js/downloader.js') }}"></script>
+<script src="{{ url_for('static', filename='js/selector_v2.js') }}"></script>
+<script src="{{ url_for('static', filename='js/type_filter.js') }}"></script>
+{% endblock %}

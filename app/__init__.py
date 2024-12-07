@@ -3,6 +3,7 @@ import logging
 from flask import Flask, redirect, url_for
 from flask_login import LoginManager
 from flask_migrate import Migrate
+from flask_redis import FlaskRedis
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import CSRFProtect
 
@@ -15,7 +16,7 @@ migrate = Migrate()
 login = LoginManager()
 login.login_view = 'auth.login'
 csrf = CSRFProtect()
-
+redis = FlaskRedis()
 
 def create_app(config_name: str = 'default'):
     app = Flask(__name__)
@@ -37,6 +38,8 @@ def create_app(config_name: str = 'default'):
     migrate.init_app(app, db)
     login.init_app(app)
     csrf.init_app(app)
+    redis.init_app(app)
+    # redis.flushdb()
 
     @login.user_loader
     def load_user(id):

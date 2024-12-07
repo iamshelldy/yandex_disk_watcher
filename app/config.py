@@ -13,6 +13,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL',
                                         f'sqlite:///{BASE_DIR}/default.db')
     PERMANENT_SESSION_LIFETIME = timedelta(minutes=30)
+    REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
 
 
 class DevelopmentConfig(Config):

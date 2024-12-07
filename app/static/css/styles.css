@@ -37,6 +37,16 @@ main {
     display: block;
 }
 
+main a {
+    color: red;
+    text-decoration: none;
+}
+
+main a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
 footer {
     color: #fff;
     margin-bottom: 0;
@@ -48,7 +58,7 @@ footer {
     justify-content: center;
 }
 
-h1 {
+h1, h2 {
     text-align: center;
 }
 
@@ -80,7 +90,6 @@ form input[type="submit"] {
     cursor: pointer;
     border: none;
     padding: 10px 20px;
-    border-radius: 4px;
     width: 100%;
 }
 
@@ -93,12 +102,13 @@ form a {
     text-decoration: none;
 }
 
-form p {
-    margin-right: 20px;
+form a:hover {
+    color: black;
+    text-decoration: underline;
 }
 
-form a:hover {
-    text-decoration: underline;
+form p {
+    margin-right: 20px;
 }
 
 .form-check {
