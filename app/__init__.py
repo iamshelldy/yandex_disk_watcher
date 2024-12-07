@@ -1,17 +1,20 @@
 import logging
 
 from flask import Flask, redirect, url_for
+from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf import CSRFProtect
 
-from .core import init_app as core_init
-from .auth import init_app as auth_init
 from .config import config_map
 
 
 # Initializing extensions.
 db = SQLAlchemy()
 migrate = Migrate()
+login = LoginManager()
+login.login_view = 'auth.login'
+csrf = CSRFProtect()
 
 
 def create_app(config_name: str = 'default'):
@@ -32,9 +35,17 @@ def create_app(config_name: str = 'default'):
     # Initializing extensions.
     db.init_app(app)
     migrate.init_app(app, db)
+    login.init_app(app)
+    csrf.init_app(app)
+
+    @login.user_loader
+    def load_user(id):
+        return db.session.get(User, int(id))
 
     # Initializing BluePrints.
+    from .core import init_app as core_init
     core_init(app)
+    from .auth import init_app as auth_init
     auth_init(app)
 
     @app.errorhandler(404)

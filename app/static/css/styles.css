@@ -1,0 +1,112 @@
+html {
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header {
+    margin-top: 0;
+    width: 100%;
+    background: #333;
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 30px;
+}
+
+header a:hover {
+    color: red;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+main {
+    display: block;
+}
+
+footer {
+    color: #fff;
+    margin-bottom: 0;
+    width: 100%;
+    display: flex;
+    background: #333;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type="submit"] {
+    background-color: #bda30b;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    width: 100%;
+}
+
+form input[type="submit"]:hover {
+    background-color: #988408;
+}
+
+form a {
+    color: red;
+    text-decoration: none;
+}
+
+form p {
+    margin-right: 20px;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+.form-check {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+}
+
+.warning {
+    color: red;
+}
