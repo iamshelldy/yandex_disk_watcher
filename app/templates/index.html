@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Watch files on Yandex Disk</h1>
+<h2>Read <a href="{{ url_for('core.faq') }}">FAQ</a> and allow browser to open pop-up windows</h2>
+<h2>Enter yandex disk link in the field below</h2>
+<h2>and click Search</h2>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.url.label }}<br>
+        {{ form.url(size=120) }}
+        {% for error in form.url.errors %}
+        <span class="warning">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

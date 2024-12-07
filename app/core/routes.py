@@ -1,22 +1,30 @@
 import json
 
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 from flask_login import login_required
 
 from . import bp
+from .forms import SearchForm
 from .. import redis
 from ..service import parse_files
 
 
-@bp.route('/')
-@bp.route('/index')
+@bp.route('/', methods=['GET', 'POST'])
+@bp.route('/index', methods=['GET', 'POST'])
 def index():
-    return render_template('base.html')
+    form = SearchForm()
+
+    if form.validate_on_submit():
+        public_url = form.url.data
+
+        return redirect(url_for('core.files', public_url=public_url))
+
+    return render_template('index.html', form=form)
 
 
 @bp.route('/faq')
 def faq():
-    return 'faq'
+    return render_template('faq.html')
 
 
 @bp.route('/files', methods=['GET', 'POST'])
