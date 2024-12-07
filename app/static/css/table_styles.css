@@ -1,0 +1,66 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #F2F2F2;
+}
+
+[class^="type-"] {
+    color: #3e3e3e;
+}
+
+.type-folder {
+    color: #ffb500;
+}
+
+.path {
+    color: #979797;
+}
+
+.filter-dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+    border: 1px solid #ccc;
+}
+
+.filter-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.filter-dropdown label {
+    display: block;
+    margin: 5px 0;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.table-container {
+    max-height: 64vh;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    /*margin-bottom: 20px;*/
+}
+
+.download-button {
+    background-color: #bda30b;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.download-button:hover {
+    background-color: #988408;
+}
