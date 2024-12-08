@@ -23,7 +23,7 @@ Yandex Disk Watcher is a web application designed to manage public Yandex Disk l
 
 - [Python 3.10 or higher](https://www.python.org/downloads/)
 - [Redis](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/)
-- [Docker (optional, for containerized deployment)](https://docs.docker.com/engine/install/ubuntu/)
+- [Docker (optional, for containerized deployment)](https://docs.docker.com/engine/install/)
 
 ### Clone the Repository
 
